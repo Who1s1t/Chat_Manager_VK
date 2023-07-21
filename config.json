@@ -1,0 +1,46 @@
+{
+  "role": {
+    "1": "Руководитель",
+    "2": "Администратор",
+    "3": "Модератор",
+    "4": "Участник"
+
+
+  },
+  "commandAccess": {
+    "1": {
+      "drate": "yes",
+      "rate": "yes",
+      "rate_i": "yes",
+      "raise": "yes",
+      "mute": "yes",
+      "dmute": "yes"
+    },
+    "2": {
+      "drate": "yes",
+      "rate": "yes",
+      "rate_i": "yes",
+      "raise": "no",
+      "mute": "yes",
+      "dmute": "yes"
+    },
+    "3": {
+      "drate": "no",
+      "rate": "no",
+      "rate_i": "yes",
+      "raise": "no",
+      "mute": "yes",
+      "dmute": "yes"
+    },
+    "4": {
+      "drate": "no",
+      "rate": "no",
+      "rate_i": "yes",
+      "raise": "no",
+      "mute": "no",
+      "dmute": "no"
+
+    }
+  }
+
+}

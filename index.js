@@ -1,8 +1,53 @@
-import VkBot from "node-vk-bot-api";
-
+const VkBot = require('node-vk-bot-api');
+const commands = require('./commands')
+const utils = require('./utils')
+require('dotenv').config()
 const bot = new VkBot({
-    token: 'vk1.a.fX9M1GCRQp-02uFilQUwS5c9pm2VLSxGgxBcizKo3yDKaiBjy3zt-UbCo8fHUx6xlTWUlyPoBHBa3klzvMrUl_2NozA4hGMHO3hW5EXbVS6BYvO7HjE1G72LzoBCnhDWFl8Xw-qsTeVi5HCA92fj2vFDR2d6y9ruT1dIsGm28hHm7CN-qSzp0lde0z4XpWEQszJbYs55kAJn7AZq0NRPiw',
+    token: process.env.TOKEN,
 
-    group_id: 221221699,
+    group_id: process.env.GROUP_ID,
 
 });
+bot.use(async (ctx, next) => {
+    try {
+        await commands.reg(ctx,bot)
+        const is_not_mute = await utils.tryMute(ctx,bot)
+        if (!is_not_mute){
+            return
+        }
+        await next();
+    } catch (e) {
+        console.error(e);
+        await ctx.reply("Неправильная команда!")
+    }
+});
+
+bot.command('!rate i',  async (ctx) => {
+    await commands.rate_i(ctx,bot)
+});
+bot.command('!rate',  async (ctx) => {
+    await commands.rate(ctx,bot)
+});
+bot.command('!drate',  async (ctx) => {
+    await commands.drate(ctx,bot)
+});
+bot.command('!raise',  async (ctx) => {
+    await commands.raise(ctx,bot)
+});
+bot.command('!mute',  async (ctx) => {
+    await commands.mute(ctx,bot)
+});
+bot.command('!dmute',  async (ctx) => {
+    await commands.dmute(ctx,bot)
+});
+
+(async () => {
+    const longPollParams = await bot.getLongPollParams();
+    console.log(longPollParams)
+    bot.startPolling((err) => {
+        if (err) {
+            console.error(err);
+        }
+
+    },longPollParams['ts']);
+})()
