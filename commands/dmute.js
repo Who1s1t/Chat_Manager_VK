@@ -23,7 +23,7 @@ module.exports = async function (ctx,bot) {
             vk_id
         }
     });
-    if (sender.dataValues.role>=user_mute.dataValues.role) {
+    if (sender.dataValues.role<=user_mute.dataValues.role) {
         await ctx.reply("Роль человека выше или ровна вашей!");
         return
     }

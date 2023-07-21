@@ -5,6 +5,11 @@ const config = require("../config.json");
 module.exports = async function (ctx,bot) {
     const vk_id = ctx.message.text.match(/\d{4,}/);
     const d_rate = ctx.message.text.match(/\d+/);
+    if (d_rate[0].length > 2) {
+        await ctx.reply("Неверный параметр")
+        return
+    }
+
     const sender = await Users.findOne({
         attribute: 'role',
         where : {
@@ -25,11 +30,16 @@ module.exports = async function (ctx,bot) {
             vk_id
         }
     });
-    if (sender.dataValues.role>=user_rate.dataValues.role) {
+    if (sender.dataValues.role<=user_rate.dataValues.role) {
         await ctx.reply("Роль человека выше или ровна вашей!");
         return
     }
     await user_rate.decrement('rate',{by: +d_rate});
+    while (user_rate.dataValues.rate <= config.roleToRate[user_rate.dataValues.role - 1]){
+        await user_rate.update({
+            role: user_rate.dataValues.role - 1
+        });
+    }
 
     await ctx.reply(`Рейтинг ${user[0].first_name} теперь равен ${user_rate.dataValues.rate}`);
 };

@@ -1,28 +1,51 @@
 {
   "role": {
-    "1": "Руководитель",
-    "2": "Администратор",
-    "3": "Модератор",
-    "4": "Участник"
+    "6": "α",
+    "5": "∆5",
+    "4": "∆4",
+    "3": "∆3",
+    "2": "∆2",
+    "1": "∆1",
+    "0": "Участник"
 
 
   },
+  "roleToRate": {
+    "6": "100",
+    "5": "99",
+    "4": "70",
+    "3": "55",
+    "2": "25",
+    "1": "5",
+    "0": "0"
+  },
   "commandAccess": {
-    "1": {
+    "6": {
       "drate": "yes",
       "rate": "yes",
       "rate_i": "yes",
       "raise": "yes",
       "mute": "yes",
-      "dmute": "yes"
+      "dmute": "yes",
+      "role": "yes"
     },
-    "2": {
+    "5": {
+      "drate": "yes",
+      "rate": "yes",
+      "rate_i": "yes",
+      "raise": "yes",
+      "mute": "yes",
+      "dmute": "yes",
+      "role": "yes"
+    },
+    "4": {
       "drate": "yes",
       "rate": "yes",
       "rate_i": "yes",
       "raise": "no",
       "mute": "yes",
-      "dmute": "yes"
+      "dmute": "yes",
+      "role": "yes"
     },
     "3": {
       "drate": "no",
@@ -30,16 +53,36 @@
       "rate_i": "yes",
       "raise": "no",
       "mute": "yes",
-      "dmute": "yes"
+      "dmute": "yes",
+      "role": "yes"
     },
-    "4": {
+    "2": {
       "drate": "no",
       "rate": "no",
       "rate_i": "yes",
       "raise": "no",
       "mute": "no",
-      "dmute": "no"
+      "dmute": "no",
+      "role": "yes"
 
+    },
+    "1": {
+      "drate": "no",
+      "rate": "no",
+      "rate_i": "yes",
+      "raise": "no",
+      "mute": "no",
+      "dmute": "no",
+      "role": "yes"
+    },
+    "0": {
+      "drate": "no",
+      "rate": "no",
+      "rate_i": "yes",
+      "raise": "no",
+      "mute": "no",
+      "dmute": "no",
+      "role": "yes"
     }
   }
 

@@ -16,7 +16,7 @@ module.exports = async function (ctx, bot) {
         firstname: user[0].first_name,
         lastname: user[0].last_name,
         rate: 0,
-        role: 4,
+        role: 1,
     })
     await ctx.reply(`${user[0].first_name} зарегистрирован`);
 };

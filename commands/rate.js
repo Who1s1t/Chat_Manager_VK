@@ -5,6 +5,13 @@ const config = require("../config.json");
 module.exports = async function (ctx,bot) {
     const vk_id = ctx.message.text.match(/\d{4,}/);
     const add_rate = ctx.message.text.match(/\d+/);
+
+    if (add_rate[0].length > 2) {
+        await ctx.reply("Неверный параметр")
+        return
+    }
+
+
     const sender = await Users.findOne({
         attribute: 'role',
         where : {
@@ -24,20 +31,18 @@ module.exports = async function (ctx,bot) {
             vk_id
         }
     });
-    if (sender.dataValues.role>=user_rate.dataValues.role) {
+    if (sender.dataValues.role<=user_rate.dataValues.role) {
         await ctx.reply("Роль человека выше или ровна вашей!");
         return
     }
 
     await user_rate.increment('rate',{by: +add_rate});
-    if (user_rate.dataValues.rate >= 100 && user_rate.dataValues.role > 1){
+    while (user_rate.dataValues.rate >= config.roleToRate[user_rate.dataValues.role + 1]){
         await user_rate.update({
-            rate: 0,
-            role: user_rate.dataValues.role - 1
+            role: user_rate.dataValues.role + 1
         });
-        await ctx.reply(`Так как рейтинг превысил 100, то роль ${user[0].first_name} повышена до ${config.role[user_rate.dataValues.role]}, а рейтинг сброшен`);
-        return
     }
 
-    await ctx.reply(`Рейтинг ${user[0].first_name} теперь равен ${user_rate.dataValues.rate}`);
+
+    await ctx.reply(`Это [id${user[0].id}|${user[0].first_name}] \nРоль: ${config.role[user_rate.dataValues.role]} \nРейтинг: ${user_rate.dataValues.rate}/100 `);
 };

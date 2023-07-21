@@ -21,7 +21,9 @@ bot.use(async (ctx, next) => {
         await ctx.reply("Неправильная команда!")
     }
 });
-
+bot.command('!role',  async (ctx) => {
+    await commands.role(ctx,bot)
+});
 bot.command('!rate i',  async (ctx) => {
     await commands.rate_i(ctx,bot)
 });

@@ -5,6 +5,7 @@ const drate = require("./drate")
 const raise = require("./raise");
 const mute = require("./mute");
 const dmute = require("./dmute");
+const role = require("./role");
 
 
 module.exports = {
@@ -15,6 +16,7 @@ module.exports = {
     raise,
     mute,
     dmute,
+    role,
 
 
 };
