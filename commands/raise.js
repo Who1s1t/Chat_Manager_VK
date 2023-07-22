@@ -5,7 +5,7 @@ const config = require("../config.json");
 module.exports = async function (ctx,bot) {
     const vk_id = ctx.message.text.match(/\d{4,}/);
     const new_raise = ctx.message.text.match(/\d+/);
-    if (new_raise < 0 || new_raise > 6){
+    if (new_raise[0] < 0 || new_raise[0] > 6 || new_raise[0].length !== 1){
         await ctx.reply("Неверный параметр")
     }
     const sender = await Users.findOne({

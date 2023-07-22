@@ -6,6 +6,7 @@ const raise = require("./raise");
 const mute = require("./mute");
 const dmute = require("./dmute");
 const role = require("./role");
+const ban = require("./ban");
 
 
 module.exports = {
@@ -17,6 +18,7 @@ module.exports = {
     mute,
     dmute,
     role,
+    ban,
 
 
 };

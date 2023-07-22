@@ -27,7 +27,8 @@
       "raise": "yes",
       "mute": "yes",
       "dmute": "yes",
-      "role": "yes"
+      "role": "yes",
+      "ban": "yes"
     },
     "5": {
       "drate": "yes",
@@ -36,7 +37,8 @@
       "raise": "yes",
       "mute": "yes",
       "dmute": "yes",
-      "role": "yes"
+      "role": "yes",
+      "ban": "yes"
     },
     "4": {
       "drate": "yes",
@@ -45,7 +47,8 @@
       "raise": "no",
       "mute": "yes",
       "dmute": "yes",
-      "role": "yes"
+      "role": "yes",
+      "ban": "yes"
     },
     "3": {
       "drate": "no",
@@ -54,7 +57,8 @@
       "raise": "no",
       "mute": "yes",
       "dmute": "yes",
-      "role": "yes"
+      "role": "yes",
+      "ban": "no"
     },
     "2": {
       "drate": "no",
@@ -63,7 +67,8 @@
       "raise": "no",
       "mute": "no",
       "dmute": "no",
-      "role": "yes"
+      "role": "yes",
+      "ban": "no"
 
     },
     "1": {
@@ -73,7 +78,8 @@
       "raise": "no",
       "mute": "no",
       "dmute": "no",
-      "role": "yes"
+      "role": "yes",
+      "ban": "no"
     },
     "0": {
       "drate": "no",
@@ -82,7 +88,8 @@
       "raise": "no",
       "mute": "no",
       "dmute": "no",
-      "role": "yes"
+      "role": "yes",
+      "ban": "no"
     }
   }
 

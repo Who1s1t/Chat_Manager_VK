@@ -1,5 +1,5 @@
 const Users = require('../db/users.js')
-let config = require('../config.json');
+const config = require('../config.json');
 
 
 module.exports = async function (ctx,bot) {

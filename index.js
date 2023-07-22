@@ -21,6 +21,10 @@ bot.use(async (ctx, next) => {
         await ctx.reply("Неправильная команда!")
     }
 });
+bot.command('!ban',  async (ctx) => {
+    console.log(ctx)
+    await commands.ban(ctx,bot)
+});
 bot.command('!role',  async (ctx) => {
     await commands.role(ctx,bot)
 });
@@ -45,7 +49,6 @@ bot.command('!dmute',  async (ctx) => {
 
 (async () => {
     const longPollParams = await bot.getLongPollParams();
-    console.log(longPollParams)
     bot.startPolling((err) => {
         if (err) {
             console.error(err);

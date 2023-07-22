@@ -1,4 +1,4 @@
-const Users = require('../db/users.js');
+const Users = require("../db/users");
 const config = require("../config.json");
 
 
@@ -18,18 +18,18 @@ module.exports = async function (ctx,bot) {
         user_id : vk_id,
         name_case: 'dat'
     });
-    const user_mute = await Users.findOne({
+    const user_ban = await Users.findOne({
         where : {
             vk_id
         }
     });
-    if (sender.dataValues.role<=user_mute.dataValues.role) {
+    if (sender.dataValues.role<=user_ban.dataValues.role) {
         await ctx.reply("Роль человека выше или ровна вашей!");
         return
     }
-    user_mute.update({
-        mute : true
+    await bot.execute('messages.removeChatUser',{
+        user_id : vk_id,
+        chat_id: String(ctx.message.peer_id).slice(-1)
     });
 
-    await ctx.reply(`Теперь ${user[0].first_name} запрещено отправлять сообщения`);
 };

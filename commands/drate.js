@@ -41,5 +41,5 @@ module.exports = async function (ctx,bot) {
         });
     }
 
-    await ctx.reply(`Рейтинг ${user[0].first_name} теперь равен ${user_rate.dataValues.rate}`);
+    await ctx.reply(`Это [id${user[0].id}|${user[0].first_name}] \nРоль: ${config.role[user_rate.dataValues.role]} \nРейтинг: ${user_rate.dataValues.rate}/100 `);
 };

@@ -1,4 +1,4 @@
-const Users = require('../db/users.js')
+const Users = require('../db/users.js');
 const config = require("../config.json");
 
 
