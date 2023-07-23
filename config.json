@@ -48,7 +48,7 @@
       "mute": "yes",
       "dmute": "yes",
       "role": "yes",
-      "ban": "yes"
+      "ban": "no"
     },
     "3": {
       "drate": "no",
@@ -84,7 +84,7 @@
     "0": {
       "drate": "no",
       "rate": "no",
-      "rate_i": "yes",
+      "rate_i": "no",
       "raise": "no",
       "mute": "no",
       "dmute": "no",
