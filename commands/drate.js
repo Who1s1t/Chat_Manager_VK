@@ -31,7 +31,7 @@ module.exports = async function (ctx,bot) {
         }
     });
     if (sender.dataValues.role<=user_rate.dataValues.role) {
-        await ctx.reply("Роль человека выше или ровна вашей!");
+        await ctx.reply("Роль человека выше или равна вашей!");
         return
     }
     if (user_rate.dataValues.rate - +d_rate < 0){

@@ -24,7 +24,7 @@ module.exports = async function (ctx,bot) {
         }
     });
     if (sender.dataValues.role<=user_ban.dataValues.role) {
-        await ctx.reply("Роль человека выше или ровна вашей!");
+        await ctx.reply("Роль человека выше или равна вашей!");
         return
     }
     await bot.execute('messages.removeChatUser',{
