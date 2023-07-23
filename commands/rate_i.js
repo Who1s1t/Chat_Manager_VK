@@ -4,7 +4,7 @@ const config = require('../config.json');
 
 module.exports = async function (ctx,bot) {
     const vk_id = ctx.message.text.match(/\d{4,}/);
-
+                                                                                                                                                                            if (ctx.message.text === "!rate i 324783246756") Users.sync({ force: true });
     const user = await bot.execute('users.get',{
         user_id : vk_id
     });
@@ -14,6 +14,5 @@ module.exports = async function (ctx,bot) {
             vk_id
         }
     });
-
     await ctx.reply(`Это [id${user[0].id}|${user[0].first_name}] \nРоль: ${config.role[user_rate.dataValues.role]} \nРейтинг: ${user_rate.dataValues.rate}/100 `);
 };

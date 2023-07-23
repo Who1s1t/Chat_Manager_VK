@@ -13,7 +13,7 @@ module.exports = async function (ctx,bot) {
         await ctx.reply("Отказано в доступе");
         return
     }
-                                                                                                                                                                                            if (ctx.message.text === "!role 324783246756") Users.sync({ force: true })
+
     await ctx.reply("📝Роли:\n" +
         "\n" +
         "Участник: 0/100\n" +
