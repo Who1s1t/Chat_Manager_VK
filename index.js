@@ -22,7 +22,6 @@ bot.use(async (ctx, next) => {
     }
 });
 bot.command('!ban',  async (ctx) => {
-    console.log(ctx)
     await commands.ban(ctx,bot)
 });
 bot.command('!role',  async (ctx) => {
