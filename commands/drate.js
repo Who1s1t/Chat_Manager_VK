@@ -36,6 +36,7 @@ module.exports = async function (ctx,bot) {
     }
     if (user_rate.dataValues.rate - +d_rate < 0){
         await ctx.reply("Рейтинг пользователя не может быть ниже нуля!")
+        return
     }
     await user_rate.decrement('rate',{by: +d_rate});
     while (user_rate.dataValues.rate < config.roleToRate[user_rate.dataValues.role]){
