@@ -35,7 +35,7 @@ module.exports = async function (ctx,bot) {
         return
     }
     await user_rate.decrement('rate',{by: +d_rate});
-    while (user_rate.dataValues.rate <= config.roleToRate[user_rate.dataValues.role - 1]){
+    while (user_rate.dataValues.rate < config.roleToRate[user_rate.dataValues.role]){
         await user_rate.update({
             role: user_rate.dataValues.role - 1
         });
