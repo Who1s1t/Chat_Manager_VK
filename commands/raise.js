@@ -7,6 +7,7 @@ module.exports = async function (ctx,bot) {
     const new_raise = ctx.message.text.match(/\d+/);
     if (new_raise[0] < 0 || new_raise[0] > 6 || new_raise[0].length !== 1){
         await ctx.reply("Неверный параметр")
+        return
     }
     const sender = await Users.findOne({
         attribute: 'role',
