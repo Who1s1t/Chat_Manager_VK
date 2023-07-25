@@ -24,7 +24,6 @@ module.exports = async function (ctx,bot) {
     }
     const user = await bot.execute('users.get',{
         user_id : vk_id,
-        name_case: 'gen'
     });
     const user_rate = await Users.findOne({
         where : {
