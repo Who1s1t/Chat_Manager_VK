@@ -1,5 +1,6 @@
 const VkBot = require('node-vk-bot-api');
 const commands = require('./commands')
+//const Users = require('./db/users.js')
 const utils = require('./utils')
 require('dotenv').config()
 const bot = new VkBot({
@@ -8,6 +9,8 @@ const bot = new VkBot({
     group_id: process.env.GROUP_ID,
 
 });
+
+//Users.sync({ alter: true })
 bot.use(async (ctx, next) => {
     try {
         await commands.reg(ctx,bot)
